@@ -36,3 +36,93 @@ User Stories:
 4) As a recipient of self help resources, I can mark a self help tool as a favorite in my profile to access later
 
 For workflow please refer to the shared doc sent in the HW channel.
+
+# October 17 Milestone 2
+
+Proof Of Concept
+
+1) What need are we fulfilling? Why would people get out of using our site?
+    According a Forbes article titled "Motivation Matters", 40% of high school students
+    are chronically disengaged from school. An article by medium.com called "8 Reasons
+    You Lack Motivation" says "Motivation is like a campfire. You need 3 components to
+    reap its full rewards: the matches that get the fire started, the wood that keeps the
+    fire going and the heat to roast your marshmallows." ugotthis.com is the spark that
+    lights those matches by matching our users with personalized motivational materials
+2) What are these users looking for? How do we deliver the final product?
+    We don't want to overcomplicate the process. Keep the signup process simple and 
+    straight to the point. Make the UI easy to navigate. Make sure the content they
+    subscribe for matches their needs.
+    We anticipate an official launch our MVP by October 27th. The product will be 
+    structured using HTML and CSS on the front end, Python and Django on the back end
+    along with APIs to pull the materials needed:
+    An example:
+    # import requests
+    # import pprint
+
+    # ppjson = pprint.PrettyPrinter(indent=2)
+
+    # response_subject = requests.get(
+    #    'https://openlibrary.org/subjects/self-help.json'
+    # )
+    # data_subject = response_subject.json()
+
+    # search_string = 'music'
+    # works_by_subject = data_subject['works']
+    # works_by_subject_results = []
+    # for work in works_by_subject:
+    #    for item in work['subject']:
+    #       if search_string in item:
+    #          works_by_subject_results.append(work['key'])
+    #            print('https://openlibrary.org' + work['key'])
+
+    # open('works_by_subject_results.txt', 'w+').write(str(works_by_subject_results))
+    
+    This API will help us pull book recommendations under the Self Help subject. We'll 
+    also include a link to a motivational video posted to YouTube using the YouTube API:
+    
+    # video_search_string = 'something'
+    # response_video = requests.get(
+    #   'https://www.googleapis.com/youtube/v3/search?'
+    #   'part=snippet&maxResults=50&q=' + video_search_string +
+    #   '&key={API_KEY}'
+    # )
+    # data_video = response_video.json()
+    # videos_by_search_string = data_video['items']
+    # videos_results = []
+    # for video in videos_by_search_string:
+    #    videos_results.append(video['id']['videoId'])
+    #    print('https://www.youtube.com/watch?v=' + video['id']['videoId'])
+    
+    Our wireframes give a basic view of the look and feel of the UI and workflow.
+    
+3) Are we prepared to handle any challenges that come with launching a product like this?
+    Yes! Our team has huddled together a few times to go over testing of the APIs,
+    assigning roles to best deliver this product and our success measurements criteria
+    has been defined and agreed upon. We're quick to huddle back together any time we 
+    come across an issue and work through it to solution. 
+    
+Acceptance Criteria
+As a person interested in self improvement, I can use ugotthis.com to
+create a profile and have self improvement resources sent directly to me or kept on my
+user profile:
+
+   User navigates to ugotthis.com
+   User sees ugotthis.com landing page
+   User can login if they already a member, sign up for U Got This by clicking a link
+   or let us know they forgot their username and password
+   User clicks sign up for U Got This
+   User is brought to ugotthis.com/signup_page 
+   User sees fields to enter in a username, email and password
+   User answers their profile creation questions:
+        1) Choose from the following categories you want to appear in your feed
+            a) focus/modivation/goal orientation
+            b) uplifting, inspirational, happiness
+            c) body positivity, health, strength
+            d) peace, calm, meditation, grattitude, zen
+   User can select the frequency of their motivational notifications:
+        1) Daily
+        2) Weekly
+        3) Bi Weekly
+   User clicks the Submit button at the bottom to complete the registration process 
+   User sees a confirmation page thanking them for signing up
+   User receives confirmation email
